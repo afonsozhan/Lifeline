@@ -1,5 +1,5 @@
 # Lifeline
-Ambulance app to facilitate contacting the ambulance or getting help from other parties in case of emergency.
+Emergency service app to facilitate contacting the ambulance or getting help from other parties in case of serious accident/emergency.
 
 ## HackGT8 Project  
 ### Members:  
