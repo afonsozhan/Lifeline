@@ -7,7 +7,7 @@ Avi Athota
 Brandon Zhou  
 Ewan Park  
 
-## Features
+### Features
 * Displays user location in a map and in text format
 * Calls the ambulance of your country in one single tap
 * Shares your current location directly with ambulance via an automated text
