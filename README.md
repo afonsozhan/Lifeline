@@ -19,4 +19,5 @@ Emergency services app to facilitate contacting the ambulance or getting help fr
   
 
 ![Member](/images/members.jpg)
+Members of Lifeline Team from left to right: Avi, Brandon, Ewan, Afonso
 
