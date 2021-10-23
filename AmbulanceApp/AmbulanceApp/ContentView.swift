@@ -7,14 +7,38 @@
 
 import SwiftUI
 import MapKit
+import Combine
+
+let screen = UIScreen.main.bounds
+let screenWidth = screen.size.width
+let screenHeight = screen.size.height
+
 
 struct ContentView: View {
-    @StateObject private var viewModel = ContentViewModel()
-    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37, longitude: 43), span:MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
     
+    @ObservedObject private var locationManager = LocationManager()
+    @State private var region = MKCoordinateRegion.defaultRegion
+    @State private var cancellable: AnyCancellable?
+    
+    private func setCurrentLocation() {
+        cancellable = locationManager.$location.sink { location in
+            region = MKCoordinateRegion(center: location?.coordinate ?? CLLocationCoordinate2D(), latitudinalMeters: 500, longitudinalMeters: 500)
+        }
+    }
     
     var body: some View {
-        Map (coordinateRegion: $region, showsUserLocation: true)
+        
+        VStack {
+            if locationManager.location != nil {
+                Map(coordinateRegion: $region, interactionModes: .all, showsUserLocation: true, userTrackingMode: nil).frame(width: screenWidth, height: screenWidth * 1.75).padding(.bottom, screenWidth * 0.5)
+            } else {
+                Text("Locating user location...")
+            }
+        }
+        
+        .onAppear {
+            setCurrentLocation()
+        }
     }
 }
 
@@ -24,54 +48,4 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-final class ContentViewModel: ObservableObject {
-    private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37, longitude: 43), span:MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
-    
-    var locationManager: CLLocationManager?
-    @State private var locationServices = CLLocationManager.locationServicesEnabled()
-    
-    func close() {
-        exit(1)
-    }
-    
-    func isLocationEnabled() {
-        @State var showingAlert = false;
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager = CLLocationManager()
-            checkLocationAuthorization()
-            locationManager?.desiredAccuracy = kCLLocationAccuracyBest
-        
-        } else {
-            // to-do later
-            close()
-        }
-        
-    }
-    
-    func checkLocationAuthorization() {
-        
-        guard let locationManager = locationManager else {
-            return
-        }
-        
-        switch locationManager.authorizationStatus {
-            
-        case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
-        
-        case .restricted:
-            print("Location services restricted.")
-        
-        case .denied:
-            print("Location services denied.")
-            
-        case .authorizedAlways, .authorizedWhenInUse:
-            region = MKCoordinateRegion(center: locationManager.location?.coordinate,  span:MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
-            break
-        
-        @unknown default:
-            break
-        }
 
-    }
-}

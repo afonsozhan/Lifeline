@@ -14,7 +14,8 @@
 		A60CDEE62724595500786901 /* AmbulanceAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60CDEE52724595500786901 /* AmbulanceAppTests.swift */; };
 		A60CDEF02724595500786901 /* AmbulanceAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60CDEEF2724595500786901 /* AmbulanceAppUITests.swift */; };
 		A60CDEF22724595500786901 /* AmbulanceAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60CDEF12724595500786901 /* AmbulanceAppUITestsLaunchTests.swift */; };
-		A60CDF3C272472E600786901 /* locationmanager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60CDF3B272472E600786901 /* locationmanager.swift */; };
+		A60CDF3C272472E600786901 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60CDF3B272472E600786901 /* LocationManager.swift */; };
+		A60CDF3F27247B1D00786901 /* MKCoordinateRegion + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60CDF3E27247B1D00786901 /* MKCoordinateRegion + Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +46,9 @@
 		A60CDEEB2724595500786901 /* AmbulanceAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmbulanceAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A60CDEEF2724595500786901 /* AmbulanceAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbulanceAppUITests.swift; sourceTree = "<group>"; };
 		A60CDEF12724595500786901 /* AmbulanceAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbulanceAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		A60CDF3B272472E600786901 /* locationmanager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = locationmanager.swift; sourceTree = "<group>"; };
+		A60CDF3B272472E600786901 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		A60CDF3E27247B1D00786901 /* MKCoordinateRegion + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKCoordinateRegion + Extensions.swift"; sourceTree = "<group>"; };
+		A60CDF402724801C00786901 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,9 +99,11 @@
 		A60CDED32724595300786901 /* AmbulanceApp */ = {
 			isa = PBXGroup;
 			children = (
+				A60CDF402724801C00786901 /* Info.plist */,
+				A60CDF3D27247ACB00786901 /* Extensions */,
+				A60CDF3A272472D000786901 /* LocationManager */,
 				A60CDED42724595300786901 /* AmbulanceAppApp.swift */,
 				A60CDED62724595300786901 /* ContentView.swift */,
-				A60CDF3A272472D000786901 /* LocationManager */,
 				A60CDED82724595400786901 /* Assets.xcassets */,
 				A60CDEDA2724595400786901 /* Preview Content */,
 			);
@@ -133,9 +138,17 @@
 		A60CDF3A272472D000786901 /* LocationManager */ = {
 			isa = PBXGroup;
 			children = (
-				A60CDF3B272472E600786901 /* locationmanager.swift */,
+				A60CDF3B272472E600786901 /* LocationManager.swift */,
 			);
 			path = LocationManager;
+			sourceTree = "<group>";
+		};
+		A60CDF3D27247ACB00786901 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A60CDF3E27247B1D00786901 /* MKCoordinateRegion + Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,9 +281,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A60CDF3C272472E600786901 /* locationmanager.swift in Sources */,
+				A60CDF3C272472E600786901 /* LocationManager.swift in Sources */,
 				A60CDED72724595300786901 /* ContentView.swift in Sources */,
 				A60CDED52724595300786901 /* AmbulanceAppApp.swift in Sources */,
+				A60CDF3F27247B1D00786901 /* MKCoordinateRegion + Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,7 +448,10 @@
 				DEVELOPMENT_TEAM = B7JX3K5DT8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app needs your location to work.";
+				INFOPLIST_FILE = AmbulanceApp/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "\"hi\"";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "\"This app requires your location in order to function.\"";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "\"This app requires your location in order to function.\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -465,7 +482,10 @@
 				DEVELOPMENT_TEAM = B7JX3K5DT8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app needs your location to work.";
+				INFOPLIST_FILE = AmbulanceApp/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "\"hi\"";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "\"This app requires your location in order to function.\"";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "\"This app requires your location in order to function.\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
