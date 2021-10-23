@@ -2,10 +2,10 @@
 Emergency services app to facilitate contacting the ambulance or getting help from other parties in case of serious accident/emergency.
 
 ### Members:  
-Afonso Zhan  
-Avi Athota  
-Brandon Zhou  
-Ewan Park  
+* Afonso Zhan  
+* Avi Athota  
+* Brandon Zhou  
+* Ewan Park  
 
 ### Features
 * Displays user location in a map and in text format
@@ -16,3 +16,5 @@ Ewan Park
 * Calls emergency contacts an/or texts them an automated message with current location
 * Toggle dark/light mode
 
+![Member](/images/members.png)
+Format: ![Alt Text](url)
