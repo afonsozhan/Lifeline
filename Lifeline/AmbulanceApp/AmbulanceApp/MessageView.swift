@@ -25,9 +25,8 @@ struct MessageView: View {
         
     }
     func sendMessage(){
-        let sms: String = "sms+14046301024&body=hello"
+        let sms: String = "sms:\(NumberToMessage)&body=\(Message)"
         let strURL = sms.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        //let strURL = "https://www.google.com"
         UIApplication.shared.open(URL.init(string: strURL)!, options: [:], completionHandler: nil)
     }
 }
