@@ -16,5 +16,7 @@ Emergency services app to facilitate contacting the ambulance or getting help fr
 * Calls emergency contacts an/or texts them an automated message with current location
 * Toggle dark/light mode
 
-![Member](/images/members.png)
-Format: ![Alt Text](url)
+  
+
+![Member](/images/members.jpg)
+
