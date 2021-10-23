@@ -12,6 +12,7 @@ struct ContentView: View {
     @StateObject private var viewModel = ContentViewModel()
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37, longitude: 43), span:MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
     
+    
     var body: some View {
         Map (coordinateRegion: $region, showsUserLocation: true)
     }
@@ -24,27 +25,53 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 final class ContentViewModel: ObservableObject {
+    private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37, longitude: 43), span:MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
+    
     var locationManager: CLLocationManager?
+    @State private var locationServices = CLLocationManager.locationServicesEnabled()
     
     func close() {
         exit(1)
     }
     
-    func locationEnabled() {
+    func isLocationEnabled() {
+        @State var showingAlert = false;
         if CLLocationManager.locationServicesEnabled() {
-            
+            locationManager = CLLocationManager()
+            checkLocationAuthorization()
+            locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+        
         } else {
-            Alert(title: Text("Hello World!"), message: Text("An important message"))
-            
-
-            
-            
-            /* print("Failed to find location").alert(isPresented: showAlert) {
-                    Alert(
-                        title: Text("Your location is disabled!"),
-                        message: Text("Please enable location services in settings to use this app."))
-                    close()
-                } */
+            // to-do later
+            close()
         }
+        
+    }
+    
+    func checkLocationAuthorization() {
+        
+        guard let locationManager = locationManager else {
+            return
+        }
+        
+        switch locationManager.authorizationStatus {
+            
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        
+        case .restricted:
+            print("Location services restricted.")
+        
+        case .denied:
+            print("Location services denied.")
+            
+        case .authorizedAlways, .authorizedWhenInUse:
+            region = MKCoordinateRegion(center: locationManager.location?.coordinate,  span:MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
+            break
+        
+        @unknown default:
+            break
+        }
+
     }
 }
