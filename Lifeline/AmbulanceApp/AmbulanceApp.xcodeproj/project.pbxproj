@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		94DA571F27248D1700D34017 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DA571E27248D1700D34017 /* MessageView.swift */; };
 		A60CDED52724595300786901 /* AmbulanceAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60CDED42724595300786901 /* AmbulanceAppApp.swift */; };
 		A60CDED72724595300786901 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60CDED62724595300786901 /* ContentView.swift */; };
 		A60CDED92724595400786901 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A60CDED82724595400786901 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		94DA571E27248D1700D34017 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		A60CDED12724595300786901 /* AmbulanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmbulanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A60CDED42724595300786901 /* AmbulanceAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbulanceAppApp.swift; sourceTree = "<group>"; };
 		A60CDED62724595300786901 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				A60CDF3A272472D000786901 /* LocationManager */,
 				A60CDED42724595300786901 /* AmbulanceAppApp.swift */,
 				A60CDED62724595300786901 /* ContentView.swift */,
+				94DA571E27248D1700D34017 /* MessageView.swift */,
 				A60CDED82724595400786901 /* Assets.xcassets */,
 				A60CDEDA2724595400786901 /* Preview Content */,
 			);
@@ -285,6 +288,7 @@
 				A60CDED72724595300786901 /* ContentView.swift in Sources */,
 				A60CDED52724595300786901 /* AmbulanceAppApp.swift in Sources */,
 				A60CDF3F27247B1D00786901 /* MKCoordinateRegion + Extensions.swift in Sources */,
+				94DA571F27248D1700D34017 /* MessageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

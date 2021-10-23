@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+<<<<<<< HEAD
 
 struct ContentView: View {
     @StateObject private var viewModel = ContentViewModel()
@@ -14,6 +15,40 @@ struct ContentView: View {
     
     var body: some View {
         Map (coordinateRegion: $region, showsUserLocation: true)
+=======
+import Combine
+
+let screen = UIScreen.main.bounds
+let screenWidth = screen.size.width
+let screenHeight = screen.size.height
+
+
+struct ContentView: View {
+    
+    @ObservedObject private var locationManager = LocationManager()
+    @State private var region = MKCoordinateRegion.defaultRegion
+    @State private var cancellable: AnyCancellable?
+    
+    private func setCurrentLocation() {
+        cancellable = locationManager.$location.sink { location in
+            region = MKCoordinateRegion(center: location?.coordinate ?? CLLocationCoordinate2D(), latitudinalMeters: 500, longitudinalMeters: 500)
+        }
+    }
+    
+    var body: some View {
+        
+        VStack {
+            if locationManager.location != nil {
+                Map(coordinateRegion: $region, interactionModes: .all, showsUserLocation: true, userTrackingMode: nil).frame(width: screenWidth, height: screenWidth * 1.75).padding(.bottom, screenWidth * 0.5)
+            } else {
+                Text("Locating user location...")
+            }
+        }
+        
+        .onAppear {
+            setCurrentLocation()
+        }
+>>>>>>> 3fbaf7e79f028cd3b3c13a06bf2545ed3b6c14f6
     }
 }
 
@@ -23,6 +58,7 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
+<<<<<<< HEAD
 final class ContentViewModel: ObservableObject {
     var locationManager: CLLocationManager?
     
@@ -48,3 +84,6 @@ final class ContentViewModel: ObservableObject {
         }
     }
 }
+=======
+
+>>>>>>> 3fbaf7e79f028cd3b3c13a06bf2545ed3b6c14f6

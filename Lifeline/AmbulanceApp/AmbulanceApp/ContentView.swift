@@ -19,6 +19,7 @@ struct ContentView: View {
     @ObservedObject private var locationManager = LocationManager()
     @State private var region = MKCoordinateRegion.defaultRegion
     @State private var cancellable: AnyCancellable?
+
     
     private func setCurrentLocation() {
         cancellable = locationManager.$location.sink { location in
@@ -26,20 +27,31 @@ struct ContentView: View {
         }
     }
     
+    
     var body: some View {
-        
-        VStack {
-            if locationManager.location != nil {
-                Map(coordinateRegion: $region, interactionModes: .all, showsUserLocation: true, userTrackingMode: nil).frame(width: screenWidth, height: screenWidth * 1.75).padding(.bottom, screenWidth * 0.5)
-            } else {
-                Text("Locating user location...")
+        NavigationView{
+            VStack {
+                if locationManager.location != nil {
+                    Map(coordinateRegion: $region, interactionModes: .all, showsUserLocation: true, userTrackingMode: nil).frame(width: screenWidth, height: screenWidth * 1.75).padding(.bottom, screenWidth * 0.2)
+
+                    NavigationLink(destination: MessageView()){
+                    Text("Send Message")
+                            .padding(.bottom, screenWidth * 0.5)
+                    }
+                } else {
+                    Text("Locating user location...")
+                }
+
             }
         }
-        
         .onAppear {
             setCurrentLocation()
         }
+
+       
     }
+    
+
 }
 
 struct ContentView_Previews: PreviewProvider {
