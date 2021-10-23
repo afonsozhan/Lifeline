@@ -3,6 +3,7 @@ Ambulance app to facilitate contacting the ambulance or getting help from other 
 
 HackGT8 Project
 Members:
+
 Afonso Zhan
 Ewan Park
 Brandon Zhou
