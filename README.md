@@ -21,7 +21,7 @@ Don´t waste your time when your life is on the line.
   
 
 ![Prototype](/images/figma_prototype.jpg)
-Format: Figma Prototype of Lifeline  
+Format: Our Desgined Figma Prototype for Lifeline  
   
 <br/><br/>  
 
