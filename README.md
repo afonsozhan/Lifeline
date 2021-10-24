@@ -1,5 +1,6 @@
 # Lifeline - HackGT8 Project  
-Emergency services app to facilitate contacting the ambulance or getting help from other parties in case of serious accident/emergency.
+Emergency services app to facilitate contacting the ambulance or getting help from other parties in case of serious accident/emergency.  
+Don´t waste your time when your life is on the line.
 
 ### Members:  
 * Afonso Zhan  
