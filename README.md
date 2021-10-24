@@ -2,7 +2,7 @@
 Emergency services app to facilitate contacting the ambulance or getting help from other parties in case of serious accident/emergency.  
 Don´t waste your time when your life is on the line.
 
-### Members:  
+### Members of the HackStreet Boys:  
 * Afonso Zhan  
 * Avi Athota  
 * Brandon Zhou  
