@@ -21,10 +21,10 @@ Don´t waste your time when your life is on the line.
   
 
 ![Prototype](/images/figma_prototype.jpg)
-Format: Our Desgined Figma Prototype for Lifeline  
+Our Desgined Figma Prototype for Lifeline  
   
 <br/><br/>  
 
 ![Member](/images/members.jpg)
-Format: Members of Lifeline Team from left to right: Avi, Brandon, Ewan, Afonso
+Members of The HackStreet Boys from left to right: Avi, Brandon, Ewan, Afonso
 
